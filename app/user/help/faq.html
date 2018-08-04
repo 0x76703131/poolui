@@ -1,33 +1,281 @@
-<div layout="column" layout-gt-md="row" flex>
-	<md-card flex-gt-md="80" flex>
-		<md-card-title>
-			<span class="md-headline">Pool FAQ</span>
-		</md-card-title>
-		<md-card-content>
-			<div ng-repeat="(topic,subject) in faq">
-				<p class="md-title">{{topic}}</p>
-				<div ng-repeat="(index, question) in subject" id="{{topic}}_{{index}}">
-					<p class="md-subhead"><b>{{question.title}}</b></p>
-					<p class="md-subhead" ng-bind-html="question.answer"></p>
-					<div ng-if="question.media">
-						<p class="md-subhead">{{question.media.title}}</p>
-						<div class="text-center">
-							<iframe width="75%" height="350px" ng-src="{{question.media.url}}" frameborder="0" allowfullscreen></iframe>
-							<br/>
-						</div>
-					</div>
-					<md-divider></md-divider>
-				</div>
-			</div>
-		</md-card-content>
-	</md-card>
-	<md-card flex-gt-md="20" flex>
-		<md-card-content class="fixed">
-			<div class="md-headline">Contents</div>
-			<div ng-repeat="(topic,subject) in faq">
-				<p class="md-title">{{topic}}</p>
-				<p class="md-subhead" ng-repeat="(index, q) in subject"><a class="theironfist" ng-click="goto(topic, index)">{{q.title}}</p>
-			</div>
-		</md-card-content>
-	</md-card>
+<div layout="column" layout-gt-md="row" flex="" class="ng-scope layout-gt-md-row layout-column flex">
+  <md-card flex="" class="_md flex">
+	 <md-card-content>
+		<div class="md-headline">Perguntas &amp; Respostas</div>
+		<md-list role="list">
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <h3>Iniciando na mineração de criptomoedas</h3>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="school">school</md-icon>
+			  <a href="" ng-click="q1=!q1">O que é o AEON?</a>
+			  <p layout-padding="" ng-show="q1" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 AEON é uma criptomoeda alternativa com foco em privacidade e aplicativos leves (como celulares e tablets). Ela é baseada no Monero e possui seu código livre e aberto a todos. Diferente de criptomoedas como o Bitcoin, que necessita de computadores especializados, o AEON pode ser minerado tanto com placas gráficas (GPU) como com processadores normais (CPU).
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="school">school</md-icon>
+			  <a href="" ng-click="q2=!q2">Por que minerar AEON?</a>
+			  <p layout-padding="" ng-show="q2" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 O AEON é uma criptomoeda na qual acreditamos ter futuro. Minerar AEON é fácil para todos, independente do computador. É muito mais fácil e rápido você alcançar o pagamento mínimo em AEON do que em outras criptomoedas. Isso significa que em questão de dias ou semanas você já terá acesso aos seus fundos, e você pode facilmente comprar outras criptomoedas como Bitcoin, Monero e Ethereum usando o AEON em corretoras online.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="school">school</md-icon>
+			  <a href="" ng-click="q3=!q3">Como faço para minerar?</a>
+			  <p layout-padding="" ng-show="q3" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Minerar criptomoedas parece um processo complicado, mas ele não precisa ser. Siga nossa página de <a href="#/help/getting_started" style="text-decoration: underline; font-weight: bold; padding: 0px;">primeiros passos</a> para começar a minerar ainda hoje. A página te mostrará desde como abrir uma carteira digital para receber seus fundos, à configuração do seu computador, servidor ou rig.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="school">school</md-icon>
+			  <a href="" ng-click="q4=!q4">O que significa o “esforço atual”?</a>
+			  <p layout-padding="" ng-show="q4" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Esforço é uma variável estatística que <strong style="padding: 0px;">estima</strong> quantos hashes são necessários enviar para encontrar um bloco e dividir a recompensa. Isso é somente uma estimativa onde <em style="padding: 0px;">esforço = hashesEnviados / dificuldadeRede.</em> Exemplos: quando um bloco precisa de 200% de esforço, significa que supostamente enviamos 2 vezes mais hashes do que o necessário para encontrar um bloco. Ao mesmo tempo, blocos que precisaram de 50% de esforço foram encontrados supostamente 2 vezes mais rápidos.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+	
+	 		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <h3>Pagamentos</h3>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="attach_money">attach_money</md-icon>
+			  <a href="" ng-click="q5=!q5">O que é o sistema de pagamento PPLNS?</a>
+			  <p layout-padding="" ng-show="q5" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 O sistema é chamado de <strong style="padding: 0px;">Pay Per Last N Shares.</strong> A recompensa que cada minerador recebe é referente aos hashes submetidos durante a janela do PPLNS até que um bloco seja encontrado. A janela atual é equivalente à 200% de esforço. Este sistema favorece mineradores leais e fornece proteção contra os <em style="padding: 0px;">pool hoppers</em> (que reduzem a recompensa dos mineradores consistentes). 
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="attach_money">attach_money</md-icon>
+			  <a href="" ng-click="q6=!q6">Quando recebo meus pagamentos?</a>
+			  <p layout-padding="" ng-show="q6" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Ao atingir o limite de pagamento mínimo (atualmente {{config.min_wallet_payout | toXMR}} AEON), a pool tentará efetuar um pagamento para o endereço da sua carteira. A pool realiza pagamentos a cada 6 horas. Certifique-se sempre que sua carteira está corretamente configurada para que o pagamento seja realizado, caso contrário a pool não será capaz de te pagar. Lembre-se que um bloco somente possui a recompensa dividida depois que outros 60 blocos forem minerados na rede do AEON (aprox. 4 horas).
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="attach_money">attach_money</md-icon>
+			  <a href="" ng-click="q7=!q7">Como receber diretamente na corretora Bittrex (ou outra corretora que solicite Payment ID)?</a>
+			  <p layout-padding="" ng-show="q7" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Você pode configurar carteiras normais e carteiras de corretoras diretamente na pool. O formato para inserir sua carteira com Payment ID é <em style="padding: 0px;">endereçoCarteira.PaymentID</em>. Exemplo, se a carteira tem o endereço ABC com o Payment ID 123, você deve configurar seu minerador com <strong style="padding: 0px;">ABC.123</strong> (separados por um ponto).
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="attach_money">attach_money</md-icon>
+			  <a href="" ng-click="q8=!q8">A pool paga por blocos órfãos?</a>
+			  <p layout-padding="" ng-show="q8" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 O sistema PPLNS distribui pagamentos baseado na performance e na sorte da pool, portanto blocos órfãos não são pagos. Um bloco órfão é um bloco que a pool encontrou, porém que não foi aceito pela network do AEON (isso acontece quando outra pool encontra o bloco ao mesmo tempo, porém o transmite mais rapidamente à network).
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="attach_money">attach_money</md-icon>
+			  <a href="" ng-click="q9=!q9">Posso mudar o endereço da minha carteira e transferir o total devido?</a>
+			  <p layout-padding="" ng-show="q9" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Visto que não temos uma maneira concreta de provar que você é o verdadeiro dono de uma carteira, não é possível realizar essa mudança. Se você realmente é dono de ambas as carteiras, o melhor é alcançar o pagamento mínimo o mais rápido possível em uma e passar a minerar na mais nova.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <h3>Sobre a pool</h3>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="navigation">navigation</md-icon>
+			  <a href="" ng-click="q10=!q10">O que é a Pool Tupi?</a>
+			  <p layout-padding="" ng-show="q10" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 A pool tupi é uma iniciativa nacional que possui uma série de objetivos que vão além de "ganhar dinheiro com moeda virtual". O primeiro ponto é que nós acreditamos que as criptomoedas/blockchain são tecnologias disruptivas que vão mudar a forma como o mundo transaciona. nós <strong style="padding: 0px;">não</strong> acreditamos que o objetivo da criptomoeda é simplesmente vendê-la por reais ou dólares.
+			  <br/><br/>
+				Nós estamos criando uma comunidade de mineradores unida. Desenvolvemos recursos, tutoriais e damos assistência para quem quer começar nesse mundo. Nós queremos crescer o cenário de mineração no Brasil, mas queremos crescê-lo alinhado com o primeiro ponto, a Pool Tupi não quer promover mineração como "esquema pra ficar rico".
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="navigation">navigation</md-icon>
+			  <a href="" ng-click="q11=!q11">Como a pool se sustenta?</a>
+			  <p layout-padding="" ng-show="q11" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 A pool cobra uma baixa taxa de 0.6% de cada bloco encontrado. Este valor é muito menor do que outras pools internacionais. Apesar da taxa, a pool opera em constante prejuízo. Pagamos a infraestrutura diretamente do nosso bolso pois acreditamos que no futuro as criptomoedas terão maior valor e importância. As maiores operações de mineração no mundo estão na Rússia, China e Estados Unidos. Queremos contribuir para o cenário de mineração Brasileiro.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="navigation">navigation</md-icon>
+			  <a href="" ng-click="q12=!q12">Como entro em contato com o suporte técnico?</a>
+			  <p layout-padding="" ng-show="q12" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Não existe um suporte técnico dedicado. A comunidade e os administradores da pool se reúnem no <a href="https://t.me/pooltupi/" target="_new" style="text-decoration: underline; font-weight: bold; padding: 0px;">grupo oficial do Telegram</a> de mineradores. Se você possui alguma dúvida, sua melhor chance é entrar no grupo e fazer suas perguntas. A comunidade é amigável e normalmente tira as dúvidas do pessoal rapidamente.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="navigation">navigation</md-icon>
+			  <a href="" ng-click="q13=!q13">Como entro em contato com os administradores?</a>
+			  <p layout-padding="" ng-show="q13" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Você pode entrar em contato com os administradores via e-mail: pooltupi (arroba) protonmail.com. Este e-mail é consultado periodicamente e não é um bom canal para pedir ajuda ou suporte. Caso tenha dúvidas, junte-se à comunidade via <a href="https://t.me/pooltupi/" target="_new" style="text-decoration: underline; font-weight: bold; padding: 0px;">Telegram</a> ou pelo <a href="https://chat.whatsapp.com/FDryMCtFYUS5C0AjrB2A0K" target="_new" style="padding: 0px; text-decoration: underline; font-weight: bold;">grupo de WhatsApp</a> e faça sua pergunta.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <h3>Mineração avançada</h3>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="build">build</md-icon>
+			  <a href="" ng-click="q14=!q14">Para que serve monitorar meu hash rate e meus hashes totais?</a>
+			  <p layout-padding="" ng-show="q14" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 O seu hash rate é o responsável pela quantidade de recompensa que você receberá por bloco. Quanto maior o hash rate, maior será a recompensa. Os hashes totais existem simplesmente para te fornecer uma ideia de quanto já foi contribuído para a pool. Lembre-se que a pool considera somente a participação nos últimos 200% de esforço.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="build">build</md-icon>
+			  <a href="" ng-click="q22=!q22">Meu hashrate está variando muito no site, é normal?</a>
+			  <p layout-padding="" ng-show="q22" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Sim. O valor exibido é uma média das shares enviadas nos últimos 60 minutos. A pool não exibe os valores precisos pois isso seria muito pesado ao servidor. De qualquer forma, o valor mais preciso que você pode adquirir é o que está diretamente no seu software de mineração. Para ter uma ideia concreta de como a pool está recebendo seu hashrate, observe o valor médio nas últimas 24 horas. Este representará com muito mais precisão o valor real.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="build">build</md-icon>
+			  <a href="" ng-click="q23=!q23">Posso colocar dois computadores/servidores para minerar na mesma carteira?</a>
+			  <p layout-padding="" ng-show="q23" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Sim. Além de facilitar a centralização dos seus fundos em um único local, você também alcançará o pagamento mínimo de {{config.min_wallet_payout | toXMR}} AEONs mais rapidamente.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="build">build</md-icon>
+			  <a href="" ng-click="q15=!q15">Qual minerador devo usar?</a>
+			  <p layout-padding="" ng-show="q15" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Recomendamos a utilização de mineradores de código aberto. Na nossa página de <a href="#/help/getting_started" style="padding: 0px; text-decoration: underline; font-weight: bold;">primeiros passos</a> você vê guias e links para os principais mineradores de AEON. Você também pode minerar diretamente do seu navegador usando <a target="_new" style="padding: 0px; text-decoration: underline; font-weight: bold;" href="https://webminerpool.com/aeon/?pool=pooltupi.com">este link</a>. Se você deseja minerar de outra forma ou com outro software, deverá buscar como configurar os mineradores por conta própria.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="build">build</md-icon>
+			  <a href="" ng-click="q16=!q16">Qual a diferença entre hashes e shares?</a>
+			  <p layout-padding="" ng-show="q16" class="layout-padding ng-hide" aria-hidden="true" style="">
+				Hashes são literalmente as possíveis soluções para o bloco. Como vimos anteriormente, quanto maior o hash, maior será sua participação na recompensa do bloco. Os shares são simplesmente “conjuntos” de hashes que são enviados à pool. Os shares existem para que a pool consiga lidar com um grande volume de hashes de todos os mineradores sem que o servidor congele. Um share é criado com a soma de todos os seus hashes dos últimos 60 segundos. Ou seja, um minerador envia 1 share cada 1 minuto, independente da quantidade de hashes que ele fez.
+<br/><br/>Os shares não possuem influência alguma em quanto você vai receber. O que conta é a quantidade de hashes em cada um deles.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="build">build</md-icon>
+			  <a href="" ng-click="q17=!q17">A pool possui alguma API para eu desenvolver meu monitoramento pessoal?</a>
+			  <p layout-padding="" ng-show="q17" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Sim. Você pode acessar a API da pool neste endereço: https://pooltupi.com/api. A API é robusta e possui desenvolvimento constante, documentação: <a style="padding: 0px; text-decoration: underline; font-weight: bold;" target="_blank" href="https://cryptonote-pool-api.restlet.io/">https://cryptonote-pool-api.restlet.io/</a>.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		   
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <h3>Outras perguntas</h3>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="help_outline">help_outline</md-icon>
+			  <a href="" ng-click="q18=!q18">Quantos hashes por segundo meu computador é capaz de fazer?</a>
+			  <p layout-padding="" ng-show="q18" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Cada computador possui peças diferentes que resultam em um hash rate diferente. A melhor maneira de “estimar” quantos hashes por segundo um computador faz é buscar o CPU ou a GPU no site de <a style="padding: 0px; text-decoration: underline; font-weight: bold;" target="_blank" href="http://monerobenchmarks.info">benchmarks do Monero.</a>
+				 <br/><br/>Como referência, ao minerar AEON com GPU seu hashrate deve ser multiplicado por 2. Ao fazer com CPU, normalmente multiplicado por 3 ou 4.
+Se no Monero sua GPU faz 700 H/s, no AEON ela vai fazer 1400 H/s aproximadamente. Se a sua CPU faz 400 H/s no Monero, ela vai fazer entre 1200 e 1600 H/s no AEON.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="help_outline">help_outline</md-icon>
+			  <a href="" ng-click="q19=!q19">Quantos AEONs eu faço com meu hash rate?</a>
+			  <p layout-padding="" ng-show="q19" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Pools funcionam baseado em performance e sorte, porém é possível calcular uma estimativa de quantos AEONs você pode fazer por dia, semana ou mês com um hash rate frequente. Para isso, utilize o site <a style="padding: 0px; text-decoration: underline; font-weight: bold;" target="_blank" href="https://whattomine.com/coins/192-aeon-cryptonight-lite">WhatToMine</a> e coloque as informações necessárias.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="help_outline">help_outline</md-icon>
+			  <a href="" ng-click="q20=!q20">Está compensando financeiramente minerar AEON?</a>
+			  <p layout-padding="" ng-show="q20" class="layout-padding ng-hide" aria-hidden="true" style="">
+				 Essa é a pergunta de um milhão de reais que não tem resposta certa. Criptomoeda é um mercado extremamente volátil e os valores das moedas flutuam muito tanto para cima como para baixo. É virtualmente impossível calcular seu retorno de investimento em reais, pois sabemos que a moeda pode valorizar drasticamente em poucos dias. Vamos dar um exemplo:
+<br/><br/>De acordo com o site <a style="padding: 0px; text-decoration: underline; font-weight: bold;" href="https://coinmarketcap.com/currencies/aeon/" target="_blank">CoinMarketCap</a>, em 1 de Setembro de 2017 o AEON estava valendo U$0.90. No final do ano de 2017 o AEON chegou a valer U$6.00, o que se traduz numa valorização de aproximadamente 660% em 4 meses. O que queremos dizer com tudo isso é que a resposta para essa pergunta depende de muitos fatores, e ninguém sabe aonde vai parar o mercado das criptomoedas.
+<br/><br/>Se o seu objetivo é ganhar uma quantidade fixa de reais (BRL) por mês, então você precisa considerar: sua recompensa média por mês multiplicado pelo valor em dólares e convertê-lo para reais. Você provavelmente fará isso convertendo seu AEON para Bitcoin e depois trocando seu Bitcoin para reais. O problema com este cálculo é que você não vai considerar a volatilidade do valor das moedas, o que o torna muito impreciso.
+
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="help_outline">help_outline</md-icon>
+			  <a href="" ng-click="q21=!q21">Como eu troco meus AEONs por outras criptomoedas ou por reais?</a>
+			  <p layout-padding="" ng-show="q21" class="layout-padding ng-hide" aria-hidden="true" style="">
+				A pool tupi minera AEON pela facilidade em realizar pagamentos aos mineradores e também porque acreditamos no projeto. O AEON é uma das poucas criptomoedas com foco em privacidade e possui uma comunidade ativa e desenvolvimento dirigido por um dos core developers do Monero, o smooth.
+<br/><br/>Porém você possui toda a liberdade de trocar seus AEONs por outras criptomoedas, incluindo Bitcoin, Monero, Ethereum, Nano, entre outros. Minerar AEON te permite pagamentos com certa velocidade, o que te dá flexibilidade para diversificar seus investimentos. As duas maiores corretoras na atualidade que negociam AEON é a <a style="padding: 0px; text-decoration: underline; font-weight: bold;" href="https://hitbtc.com/?ref_id=5a4a56a48097d" target="_blank">HitBTC</a> e a <a style="padding: 0px; text-decoration: underline; font-weight: bold;" href="https://bittrex.com/" target="_blank">Bittrex</a>. Crie uma conta em uma dessas corretoras e troque seus AEONs por outras criptomoedas.
+<br/><br/>Se você deseja trocá-lo por reais, é preciso primeiro vender os AEONs por Bitcoin e usar uma corretora brasileira de Bitcoin (como FoxBit ou Mercado Bitcoin) para trocá-los por reais.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+		<md-list-item role="listitem" class="md-no-proxy _md">
+		   <span>
+			  <md-icon md-font-set="material-icons" class="material-icons" role="img" aria-label="help_outline">help_outline</md-icon>
+			  <a href="" ng-click="q24=!q24">Como essa pool foi feita?</a>
+			  <p layout-padding="" ng-show="q24" class="layout-padding ng-hide" aria-hidden="true" style="">
+				Usamos os projetos de código aberto <a style="padding: 0px; text-decoration: underline; font-weight: bold;" href="https://github.com/Snipa22/nodejs-pool"><i class="fa fa-github"></i> nodejs-pool</a> &amp; <a style="padding: 0px; text-decoration: underline; font-weight: bold;" href="https://github.com/mesh0000/poolui"><i class="fa fa-github"></i> poolui</a>.
+			  </p>
+		   </span>
+		   <div class="md-secondary-container"></div>
+		</md-list-item>
+	 </md-list>
+	 </md-card-content>
+  </md-card>
 </div>

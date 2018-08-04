@@ -16,7 +16,7 @@ app.controller('AdminLoginCtrl', function($scope, $location, $route, dataService
 				// $mdDialog.hide(false);
 			}
 		}, function(error){
-			$scope.status = "Please check your login details";
+			$scope.status = "Informações inválidas";
 		});
 	}
 

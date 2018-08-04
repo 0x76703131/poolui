@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html lang="en" ng-app="pooladmin" class="no-js lt-ie9" manifest="app.manifest"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="pooladmin" class="no-js" manifest="app.manifest"> <!--<![endif]-->
 <head>
-  <title>XMRPool.net - Mine XMR/Monero or BTC/Bitcoin</title>
+  <title>Admin Pool Tupi</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -29,7 +29,7 @@
         <md-card flex>
           <md-toolbar class="md-table-toolbar md-warn">
             <div class="md-toolbar-tools" flex>
-              <h1 flex>Pool Admin CP</h1>
+              <h1 flex>Painel de Controle dos Administradores</h1>
               <div flex></div>
               <div ng-if="isLoggedIn()">
                 <md-button class="md-accent" ng-click="logout()">Logout</md-button>
@@ -39,16 +39,16 @@
           <md-card-content class="no-padding" ng-if="isLoggedIn()">
             <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
               <md-nav-item md-nav-href="#dashboard" name="dashboard">
-                Dashboard
+                Painel
               </md-nav-item>
               <md-nav-item md-nav-href="#workers" name="workers">
                 Workers
               </md-nav-item>
               <md-nav-item md-nav-href="#ports" name="ports">
-                Ports
+                Portas
               </md-nav-item>
               <md-nav-item md-nav-href="#config" name="config">
-                Config
+                Configuração
               </md-nav-item>
             </md-nav-bar>
           </md-card-content>

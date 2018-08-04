@@ -5,12 +5,17 @@
 				<md-card-title>
 					<md-card-title-media>
 						<div class="md-media-sm card-media" layout="row" layout-align="center center">
-							<md-icon class="material-icons">multiline_chart</md-icon>
+							<md-icon class="material-icons">trending_up</md-icon>
 						</div>
 					</md-card-title-media>
 					<md-card-title-text>
-						<span class="md-headline">{{poolStats.global.totalHashes | number}}</span>
-						<span class="md-subhead">Hashes Accepted</span>
+						<span class="md-headline">{{(100 * poolStats.global.roundHashes / network.difficulty).toFixed(1) | number}} %</span>
+						<span class="md-subhead">Esforço atual</span>
+						<md-tooltip md-direction="bottom">
+							Esforço para o bloco atual e média do últimos 50 blocos.
+						 </md-tooltip>
+						<md-divider md-inset></md-divider>
+						<span class="md-subhead">Média: {{overallEffort | number:1 }}%</span>
 					</md-card-title-text>
 				</md-card-title>
 			</md-card>
@@ -26,28 +31,33 @@
 					<md-card-title-text>
 						<div class="md-headline">{{poolStats.global.totalBlocksFound}}</div>
 						<div class="md-subhead">
-							<span>Blocks Found (<span am-time-ago="poolStats.global.lastBlockFoundTime*1000"></span>)
+							<span><a href="#/blocks">Blocos encontrados</a></span>
+							<md-divider md-inset></md-divider>
+						    <span class="md-subhead">Último: <span am-time-ago="poolStats.global.lastBlockFoundTime*1000"></span></span>
 							<md-tooltip md-direction="bottom">
-						    	{{poolStats.global.lastBlockFoundTime*1000 | date:'hh:mm:ss dd/MM/yy'}}
-						     </md-tooltip>
+						    {{poolStats.global.lastBlockFoundTime*1000 | date:'hh:mm:ss dd/MM/yy'}}
+						</md-tooltip>
 						</div>
 					</md-card-title-text>
 				</md-card-title>
 			</md-card>
 		</div>
-	</div>
-	<div layout="column" layout-gt-sm="row" flex>
 		<div layout="column" flex>
 			<md-card class="metric">
 				<md-card-title>
 					<md-card-title-media>
 						<div class="md-media-sm card-media" layout="row" layout-align="center center">
-							<md-icon class="material-icons">memory</md-icon>
+							<md-icon class="material-icons">dns</md-icon>
 						</div>
 					</md-card-title-media>
 					<md-card-title-text>
 						<span class="md-headline">{{poolStats.global.miners}}</span>
-						<span class="md-subhead">Miners Connected</span>
+						<span class="md-subhead">Mineradores conectados</span>
+						<md-tooltip md-direction="bottom">
+						    	Número de carteiras diferentes minerando na pool tupi.
+						 </md-tooltip>
+						<md-divider md-inset></md-divider>
+						<span class="md-subhead"><a href="#/ports">{{WorkersTotal | number}} conexões simultâneas</a></span>
 					</md-card-title-text>
 				</md-card-title>
 			</md-card>
@@ -62,11 +72,16 @@
 					</md-card-title-media>
 					<md-card-title-text>
 						<span class="md-headline">{{poolStats.global.totalMinersPaid}}</span>
-						<span class="md-subhead">Miners Paid <a href="#/payments">({{poolStats.global.totalPayments}} Payments)</a></span>
+						<span class="md-subhead">Mineradores pagos</span>
+						<md-divider md-inset></md-divider>
+						<!-- <span class="md-subhead"><a href="#/payments">Total pago: ≅ R${{preco_brl * totAEON | number:2}}</a></span>
+						<md-tooltip md-direction="bottom">
+						    	{{totAEON | number:0}} AEONs convertidos na cotação atual.
+						 </md-tooltip> -->
+						<span class="md-subhead"><a href="#/payments">{{poolStats.global.totalPayments}} pagamentos</a></span>
 					</md-card-title-text>
-
 				</md-card-title>
 			</md-card>
 		</div>
-	</div>
+			</div>
 </div>

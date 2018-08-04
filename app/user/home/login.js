@@ -19,7 +19,7 @@ app.controller('LoginCtrl', function($scope, $route, $mdDialog, dataService, tim
 				$mdDialog.hide(false);
 			}
 		}, function(error){
-			$scope.status = "Please check your login details";
+			$scope.status = "Por favor, cheque os detalhes do login";
 		});
 	}
 

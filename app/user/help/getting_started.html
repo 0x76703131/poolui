@@ -3,96 +3,111 @@
 		<md-card>
 			<md-toolbar class="md-table-toolbar md-default">
 				<div class="md-toolbar-tools">
-					<span>Getting Started with {{GLOBALS.pool_name}}</span>
+					<span class="md-title">Minerando AEON na Pool Tupi</span>
 				</div>
 			</md-toolbar>
 			<md-card-content>
-				<p class="panel-subtitle">If you are new to mining, this is the place for you.</p>
-				<p class="panel-subtitle">take a deep breath, its only confusing at first but pure joy once up and running.</p>
+				<p class="panel-subtitle">Bem-vindo à nossa pool! Estamos aqui para ajudá-lo a configurar seu minerador.</p>
+				<!--<p>Essa é a primeira pool nacional de AEON. Recomendamos que você entre no nosso grupo de <a href="https://t.me/pooltupi/" target="_new" style="text-decoration: underline; font-weight: bold;">Telegram</a> ou <a href="https://chat.whatsapp.com/FDryMCtFYUS5C0AjrB2A0K" target="_new" style="text-decoration: underline; font-weight: bold;">WhatsApp</a> e faça parte da nossa comunidade de mineradores!</p>
+				<p>AEON é uma criptomoeda leve, com foco em privacidade e baseada no protocolo CryptoNote. Ela é a versão <em>light</em> do Monero e pode ser trocada por inúmeras outras criptomoedas nas corretoras Bittrex e HitBTC.</p>-->
+				Leia atentamente às instruções abaixo e em poucos minutos você estará minerando!
 			</md-card-content>
 		</md-card>
 		<md-card>
 			<md-toolbar class="md-table-toolbar md-default">
 				<div class="md-toolbar-tools">
-					<span>1. Create a Wallet</span>
+					<span class="md-title">Crie uma carteira</span>
 				</div>
 			</md-toolbar>
 			<md-card-content>
-				<p class="panel-subtitle">Both online wallets and hardware wallets have their pros and cons.</p>
-				<p class="panel-subtitle"><a href="https://www.mymonero.com" target="_blank">MyMonero</a> : MyMonero is an online wallet maintained by the core monero team, so while safe is still suceptable to hacks.</p>
-				<p class="panel-subtitle"><a href="https://getmonero.org/2016/12/22/monero-core-gui-beta-released.html" target="_blank">Monero GUI Wallet</a> : The safest way to safely store and secure your XMR, although it would be your responsibility to kee your XMR Safe.</p>
-			</md-card-content>
+				<p class="panel-subtitle">Escolha uma carteira de AEON para receber os dividendos da mineração.</p>
+				<ul>
+					<li><a style="text-decoration: underline; font-weight: bold;" href="https://aeonpocket.com/#!/home" target="_blank">AEON Pocket</a>: carteira via browser de simples utilização. Não esqueça de anotar as palavras que formam sua chave privada (em inglês, cuidado com o tradutor automático do navegador)!</li>
+				<li><a style="text-decoration: underline; font-weight: bold;" href="https://github.com/aeonix/aeon-gui/releases" target="_blank">Carteira Oficial AEON</a>: carteira oficial do projeto AEON. Esta é a carteira que oferece máxima segurança. O processo de configuração é simples e intuitivo, mas iremos disponibilizar um tutorial em breve. Nesse meio tempo, utilize o <a style="text-decoration: underline; font-weight: bold;" href="https://monero.inf.br/guia-como-abrir-e-usar-carteira-monero/" target="_blank">tutorial de configuração da carteira Monero</a> como base.</li>
+				<li><a style="text-decoration: underline; font-weight: bold;" href="https://bittrex.com/" target="_blank">Bittrex</a> / <a style="text-decoration: underline; font-weight: bold;" href="https://hitbtc.com/?ref_id=5a4a56a48097d" target="_blank">HitBTC</a> / <a style="text-decoration: underline; font-weight: bold;" href="https://tradeogre.com/" target="_blank">TradeOgre</a> (corretoras/exchanges): Lembre-se que para minerar na sua conta Bittrex é preciso indicar o ID de pagamento (<em>Payment ID</em>) junto ao endereço na configuração do seu minerador.</li>
+			</ul></md-card-content>
 		</md-card>
 		<md-card>
 			<md-toolbar class="md-table-toolbar md-default">
-				<div class="md-toolbar-tools">
-					<span>2. Download mining software</span>
-				</div>
+			  <div class="md-toolbar-tools">
+			    <span class="md-title">Escolha um software de mineração</span>
+			  </div>
 			</md-toolbar>
 			<md-card-content>
-				<p class="panel-subtitle">AMD Miner</p>
-				<p class="panel-subtitle">Nvidia Miner</p>
-				<p class="panel-subtitle">CPU Miner (AESNI CPU's)</p>
-				<p class="panel-subtitle">CPU Miner (Older CPU's})</p>
+				<p>AEON é uma criptomoeda que pode ser minerada tanto com GPUs (placas de vídeo) e CPUs (processadores). Dependendo de como você pretende minerar, há softwares específicos para cada caso.</p>
+                                <p class="panel-subtitle">Qual minerador devo usar?</p>
+				<ul>
+				<li>Um computador e quero minerar somente com o processador: <strong>XMRig</strong></li>
+				<li>Vários computadores e quero minerar somente com o processador: <strong>XMRig + XMRigCC para monitorar</strong></li>
+				<li>Um computador e quero minerar com meu processador e placa de vídeo juntos: <strong>XMR-Stak</strong></li>
+				<li>Um computador com várias placas de vídeo (rig): <strong>XMR-Stak / XMRig-NVIDIA / XMRig-AMD</strong></li>
+				<li>Tenho um site e quero que meus visitantes minerem enquanto navegam nas páginas: <strong>webminerpool</strong>
+				</ul>
+				<p><strong>Não deixe de consultar nossos guias abaixo para ajudar na configuração das suas máquinas!
+					<br>Tutoriais YouTube <img src="button_youtube.png"> no final da página!</strong></p>
+				<md-subheader class="md-no-sticky"><strong>Aviso:</strong> é possível que seu anti-vírus reconheça um ou mais softwares aqui listados como uma ameaça ao seu computador. <strong>Isto é um falso positivo</strong>. Existem pessoas colocando mineradores de criptomoedas junto com malwares na internet e por isso os softwares acusam um problema. Mas fique tranquilo: os softwares aqui listados foram amplamente testados por nós e pela comunidade. Eles não representam uma ameaça ao seu computador.</md-subheader>
+				<p>
+					<table width="100%" style="text-align: center;">
+					  <tr>
+						<th>Nome</th>
+						<th>Tipo</th>
+						<th>Tutorial</th>
+						<th>Download</th>
+						<th>Código aberto?</th>
+					  </tr>
+					  <tr>
+						<td>XMRig</td>
+						<td>CPU</td>
+						<td><img src="button_gdocs.png"> <a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://docs.google.com/document/d/1Ft7LVw_W53TUDVv5c99Hdlz8OvjtH7KYrC3EPYY8sUQ/edit?usp=sharing">Windows</a></td>
+						<td><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://github.com/xmrig/xmrig/releases">GitHub</a></td>
+						<td>Sim</td>
+					  </tr>
+					  <tr>
+						<td>XMRig AMD</td>
+						<td>GPU: AMD</td>
+						<td>Use o acima como base</td>
+						<td><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://github.com/xmrig/xmrig-amd/releases">GitHub</a></td>
+						<td>Sim</td>
+					  </tr>
+					  <tr>
+						<td>XMRig NVIDIA</td>
+						<td>GPU: NVidia</td>
+						<td>Use o acima como base</td>
+						<td><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://github.com/xmrig/xmrig-nvidia/releases">GitHub</a></td>
+						<td>Sim</td>
+					  </tr>
+					  <tr>
+						<td>XMR-Stak</td>
+						<td>Híbrido (CPU/GPU AMD + NVidia)</td>
+						<td><img src="button_gdocs.png"> <a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://docs.google.com/document/d/1-r9ruT1Gv9eP4RDrmlc1Q0MpWqMU_VLQGCFmwbSqchg/edit?usp=sharing">Windows</a> / <a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://docs.google.com/document/d/1a4muP7rF6IZQy71ebs-5EPIAax6nI2LpLTAInxlX1-o/edit?usp=sharing">Linux</a> / <a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://docs.google.com/document/d/1bYvtoir-_-PaemphykPYBeiT-2Mx70hacqNgPtiOi6I/edit?usp=sharing">Mac</a></td>
+						<td><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://github.com/fireice-uk/xmr-stak/releases">GitHub</a></td>
+						<td>Sim</td>
+					  </tr>
+					  <tr>
+						<td>webminerpool</td>
+						<td>JavaScript</td>
+						<td>N/A (Desenvolvedor Web)</td>
+						<td><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://github.com/notgiven688/webminerpool">GitHub</a></td>
+						<td>Sim</td>
+					  </tr>
+					  <tr>
+						<td>Pickaxe Mobile Miner</td>
+						<td>Android</td>
+						<td><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://www.youtube.com/watch?v=snFA1eEpbMc"><img src="button_youtube.png"> Vídeo</a></td>
+						<td><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://play.google.com/store/apps/details?id=com.nanobytes.pickaxe">Google Play</a></td>
+						<td>Não</td>
+					  </tr>
+					</table>
+				</p>
+				<p class="panel-subtitle">Tutoriais complementares</p>
+				<ul><li><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://docs.google.com/document/d/1BolRYs4h8wodl20ZA9DBxMnshbpwG_jk9gP_PFw750U/edit#heading=h.6jynaot9cbnq"><img src="button_gdocs.png"> Como iniciar o minerador ao ligar o Windows</a></li>
+				<li><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://www.youtube.com/watch?v=VGkEVcMaPcY"><img src="button_youtube.png"> Minerar com CPU (XMRIG) no Windows</a></li>
+				<li><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://www.youtube.com/watch?v=PTwpC0-2Uzw"><img src="button_youtube.png"> Minerar com CPU + GPU (XMR-STAK) no Windows</a></li>
+				<li><a target="_new" style="text-decoration: underline; font-weight: bold;" href="https://www.youtube.com/watch?v=wg2IJdhTXbE"><img src="button_youtube.png"> Gerenciar remotamente os mineradores XMRig através do XMRigCC</a> (para quem tem diversos mineradores)</li>
+				<li>Mais guias em breve!</li>
+				</ul>
 			</md-card-content>
-		</md-card>
-		<md-card>
-			<md-toolbar class="md-table-toolbar md-default">
-				<div class="md-toolbar-tools">
-					<span>3. Pick a server and port</span>
-				</div>
-			</md-toolbar>
-			<md-card-content>
-				<p class="panel-subtitle">There are 2 important things here the <b>URL</b> and the <b>port</b> that you are going to connect to.</p>
-				<p>You need to pick your URL and Port from the Ports List. Here you'll notice theres Global, PPLNS, Solo (<a href="#/help/faq">?</a>)</p>
-				<p>Global is simply a collection of both PPLNS & Solo ports powerd by GEODNS. <br/>GEODNS automagically finds the closest server to you and could also be used to shares you in case of a regional outage.</p>
-				<p>If you prefer to shave off a few of those ms and connect directly, you have the option to select your preferred endpoint too.</p>
-				<p>The Port is used in conjunction with the url and is used to specify the starting difficulty. You should select this depending on the total #ing power of your rig (see port descriptions).</p>
-				<p>If you are an advanced user or would like to set a fixed difficulty. examples below.</p>
-				<div flex layout="row">
-					<div flex></div>
-					<md-button ng-click="viewPorts($event)">View Ports list</md-button>
-					<div flex></div>
-				</div>
-				<!-- <p class="panel-subtitle">Curious what the port types are?  Most miners are best served by PPLNS, which
-				helps to combat pool hopping and ensures a good payout for miners.  PPS is the most stable option of
-				the lot, ensuring that you get paid out for every share, but with a higher fee for the risk the pool
-				takes.  Solo ports are for those who like to gamble and want to try and find their own block!</p> -->	
-			</md-card-content>
-		</md-card>
-		<md-card>
-			<md-toolbar class="md-table-toolbar md-default">
-				<div class="md-toolbar-tools">
-					<span>The moment</span>
-				</div>
-			</md-toolbar>
-			<md-card-content>
-				<p class="panel-subtitle">OK So by now you should have a wallet, mining software, url and port. Its time to put them together.</p>
-			</md-card-content>
-			<md-card-content>
-				<p>Here are some examples of the parameters that you need to pass on to your miner software, the format matters so be careful.</p>
-				<p>Depending on your miner you need to add the required parameters via command line or config.txt</p>
-				<p>Required fields are payment <b>address</b> and <b>MinerIdentifier</b></p>
-				<blockquote>
-					<i>Username format</i> : address.paymentID+FixedDifficulty<br/>
-					<i>Password Format</i> : MinerIdentifier:Email<br/>
-				</blockquote>
-				<md-list flex>
-					<md-subheader class="md-no-sticky">Username / Password Samples</md-subheader>
-					<md-divider></md-divider>
-					<md-list-item class="md-3-line" ng-repeat="sample in samples">
-					  <div class="md-list-item-text" layout="column">
-						<h4>## {{ sample.desc }}</h4>
-						<blockquote>
-							<p><b>{{ sample.type }}</b> : {{ sample.sample }}</p>
-							<small class="md-body-1">(e.g. miner.exe -u <i class="truncate">{{(sample.type=="Username") ? sample.sample : 'paymentAddress'}}</i> -p {{(sample.type=="Password") ? sample.sample : 'worker'}})</small><br/>
-						</blockquote>
-					  </div>
-					  <md-divider></md-divider>
-					</md-list-item>
-				 </md-list>
-			</md-card-content>
-		</md-card>
-		<h3 class="text-center">Happy Mining !</h3>
+				<h3 class="text-center">Siga nossos tutoriais e boa mineração! Se estiver com dúvidas, entre em contato via <a href="https://t.me/pooltupi/" target="_new" style="text-decoration: underline; font-weight: bold;">Telegram</a>!</h3>
+			</md-card>
 	</div>
 </div>

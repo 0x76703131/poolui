@@ -76,6 +76,7 @@ angular.module('utils.services', [])
       // Get miner worker ids
       dataService.getData("/miner/"+key+"/identifiers", function(minerIDs){
         addrStats[key].ids = minerIDs;
+        addrStats[key].ids.sort(); // Sort by miner id
       });
 
       dataService.getData("/miner/"+key+"/stats/allWorkers", function(workerStats){
@@ -119,7 +120,10 @@ angular.module('utils.services', [])
             x: {
               key: "ts",
               type: "date"
-            }
+            },
+            y: {
+              min: 0
+		    }
           }
         },
         table_selected: [],
@@ -129,34 +133,49 @@ angular.module('utils.services', [])
         }
       };
       
-      dataService.getData("/miner/"+addr+"/chart/hashrate/allWorkers", function(allWorkersData){
-          // Convert all dates to object
-
+         dataService.getData("/miner/"+addr+"/chart/hashrate/allWorkers", function(allWorkersData){
           _.each(allWorkersData, function (workerData, mid) {
+            var sumhour = 0;
+            var sumtfhour = 0;
+            var j = 0;
+            var k = 0;
+            var hourago = Date.now() - 3600000;
+            var tfhourago = Date.now() - 86400000;
             for(var i = 0 ; i < workerData.length; i++){
+              if (allWorkersData[mid][i].ts > hourago) {
+                  sumhour += allWorkersData[mid][i].hs;
+                  j += 1;
+              }
+              if (allWorkersData[mid][i].ts > tfhourago) {
+                  sumtfhour += allWorkersData[mid][i].hs;
+                  k += 1;
+              }
               allWorkersData[mid][i].ts = new Date(allWorkersData[mid][i].ts);
             }
-
+            if (j>0) {
+                allWorkersData[mid].avghshour = Math.round(sumhour/j);
+            }
+            if (k>0) {
+                allWorkersData[mid].avghstfhour = Math.round(sumtfhour/k);
+            }
             minerStats[addr].dataset[mid] = workerData;
-
             minerStats[addr].options.allSeries = _.unionBy(minerStats[addr].options.allSeries, [{
               axis: "y",
               id: mid,
               dataset: mid,
               label: mid,
               key: "hs",
-              color: (minerStats[addr].options.series[mid]===undefined) ? randomColor() : minerStats[addr].options.series[mid].color,
+              color: "#006600",
               type: ['line', 'area'],
-              //interpolation: { mode: "basis"},
+              interpolation: { mode: "basis"},
               defined: function (value){
-                  //console.log(value);
                   return (value !== undefined || value.x !== undefined || value.y !== undefined) ;
                 }
               }], 'id');
           });
 
           // only display selected miners
-          var selected = minerStats[addr].selected;
+          var selected = minerStats[addr].table_selected;
           if(minerStats[addr].table_selected.length < 1) {
             selected = _.union(minerStats[addr].table_selected, ['global']);
           }

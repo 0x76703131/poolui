@@ -4,7 +4,7 @@
 		<md-card>
 			<md-toolbar class="md-table-toolbar md-default">
 			  <div class="md-toolbar-tools">
-				<span>Blocks Found</span>
+				<span class="md-title">Blocos encontrados</span>
 			  </div>
 			</md-toolbar>
 			<md-card-content>
@@ -13,15 +13,20 @@
 				  <table md-table md-progress="promise">
 					<thead md-head>
 					  <tr md-row>
-						<th md-column><h2 class="md-subhead">Valid</h2></th>
-						<th md-column><h2 class="md-subhead">Time Found</h2></th>
-						<th md-column><h2 class="md-subhead">Height</h2></th>
-						<th md-column><h2 class="md-subhead">Difficulty</h2></th>
+						<th md-column><h2 class="md-subhead">Válido</h2></th>
+						<th md-column><h2 class="md-subhead">Encontrado há</h2></th>
+						<th md-column><h2 class="md-subhead">Esforço</h2><md-tooltip md-direction="left">
+						<span class="frac"><span>shares</span><span class="symbol">/</span><span class="bottom">diff</span></span>
+						</md-tooltip>
+						</th>
+						<th md-column><h2 class="md-subhead">Distribuição</h2></th>
+						<th md-column><h2 class="md-subhead">Recompensa</h2></th>
+						<th md-column><h2 class="md-subhead">Altura</h2></th>
+<!--						<th md-column><h2 class="md-subhead">Difficulty</h2></th>-->
 						<th md-column><h2 class="md-subhead">Hash</h2></th>
-						<th md-column><h2 class="md-subhead">Shares</h2></th>
-						<th md-column><h2 class="md-subhead">Luck</h2></th>
-						<th md-column><h2 class="md-subhead">Maturity</h2></th>
-						<th md-column><h2 class="md-subhead">Pool</h2></th>
+<!--						<th md-column><h2 class="md-subhead">Shares</h2></th>-->
+						
+<!--						<th md-column><h2 class="md-subhead">Pool</h2></th>-->
 					  </tr>
 					</thead>
 					<tbody md-body>
@@ -32,29 +37,31 @@
 							</md-icon>
 						</td>
 						<td md-cell>
-							<h3 class="md-body-2" am-time-ago="block.ts"></h3>
-							<md-tooltip>
-								{{::block.ts | date:"hh:mm:ss dd/MM/yy"}}
+							<p class="md-body-2" am-time-ago="block.ts"></p>
+							<md-tooltip  md-direction="left">
+								{{::block.ts | date:"HH:mm:ss dd/MM/yy"}}
 							</md-tooltip>
 						</td>
-						<td md-cell><p class="md-body-2">{{::block.height | number}}</p></td>
-						<td md-cell><p class="md-body-2">{{::block.diff | number}}</p></td>
-						<td md-cell><p ng-bind-html="::block.hash | hashToLink: 'block'"></p></td>
-						<td md-cell><p class="md-body-2">{{::block.shares | number}}</p></td>
-						<td md-cell><p class="md-body-2">{{::block.luck | number:2}} %</p></td>
+						<td md-cell><p class="md-body-2 nowrap" ng-style="{'color' : block.color}"><strong>{{::block.luck | number:1}} %</strong></p>
+                                                <md-tooltip md-direction="left">
+                                                <span class="frac"><span>{{::block.shares | number}}</span><span class="symbol">/</span><span class="bottom">{{::block.diff | number}}</span></span>
+                                                </md-tooltip>
+						</td>
 						<td md-cell>
 							<md-progress-linear  md-mode="query" ng-if="!block.maturity"></md-progress-linear>
 							<p ng-if="block.maturity<0">
 								<md-icon>lock_open</md-icon> 
-								<md-tooltip>
-									{{-block.maturity}} blocks ago
+								<md-tooltip md-direction="left">
+									Há {{-block.maturity}} blocos
 								</md-tooltip>
 							</p>
 							<p ng-if="block.maturity>0">
-								{{block.maturity}} to go
+								Em ~{{4 * block.maturity | number}} minutos
 							</p>
 						</td>
-						<td md-cell><p class="md-body-2">{{::block.pool_type}}</p></td>
+						<td md-cell><p class="md-body-2">{{::block.value | toXMR:10}}</p></td>
+						<td md-cell><p class="md-body-2">{{::block.height | number}}</p></td>
+						<td md-cell><p class="md-body-2 truncate" ng-bind-html="::block.hash | hashToLink: 'block'"></p></td>
 					  </tr>
 					</tbody>
 				  </table>

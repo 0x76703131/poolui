@@ -2,7 +2,7 @@
   <md-content class="login">
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Miner Login</h2>
+        <h2 class="md-title">Login do console</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon aria-label="Close dialog">clear</md-icon>
@@ -15,23 +15,26 @@
         <div>
           <md-input-container class="md-icon-float md-block">
             <!-- Use floating label instead of placeholder -->
-            <label>Payment Address</label>
+            <label>Endereço da sua carteira</label>
             <md-icon>person</md-icon>
             <input ng-model="user.username" name="username" type="text" md-autofocus>
           </md-input-container>
 
           <md-input-container class="md-icon-float md-block">
-            <label>Password</label>
+            <label>E-mail (ou senha)</label>
             <md-icon>lock</md-icon>
-            <input ng-model="user.password" name="password" type="password" placeholder="your email identifier (read Getting Started to set one)">
+            <input ng-model="user.password" name="password" type="password" placeholder="E-mail configurado no seu minerador">
           </md-input-container>
         </div>
       </form>
+      <div>
+	    <p>Utilize o console para mudar o valor do pagamento mínimo. A senha é o endereço de e-mail configurado no seu minerador. Você poderá mudar a senha no console.</p>
+      </div>
     </md-dialog-content>
 
     <md-dialog-actions layout="row">
       <md-checkbox class="md-primary" ng-model="remember">
-        Remember me
+        Lembrar
       </md-checkbox>
       <span flex></span>
       <p class="invalid">{{status}}</p>

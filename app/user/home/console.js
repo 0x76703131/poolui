@@ -25,7 +25,7 @@ app.controller('ConsoleCtrl', function($scope, $route, $filter, $timeout, $mdDia
 		dataService.postData("/authed/changePayoutThreshold", {threshold: $scope.paymentThresh},function(data){
 			//$mdDialog.hide('updated');
 			$scope.statusClass = "valid";
-			$scope.status = "Threshold Saved";
+			$scope.status = "Limite salvo";
 			messageFlash();
 		});
 	}
@@ -35,7 +35,7 @@ app.controller('ConsoleCtrl', function($scope, $route, $filter, $timeout, $mdDia
 			dataService.postData("/authed/changePassword", {password: $scope.password.pwd},function(data){
 				//$mdDialog.hide('updated');
 				$scope.statusClass = "valid";
-				$scope.status = "Password Saved";
+				$scope.status = "Senha salva";
 				messageFlash();
 			});
 		} else {
@@ -54,7 +54,7 @@ app.controller('ConsoleCtrl', function($scope, $route, $filter, $timeout, $mdDia
 			});
 		} else {
 			$scope.statusClass = "invalid";
-			$scope.status = "No Change...";
+			$scope.status = "Erro";
 			messageFlash();
 		}
 	}

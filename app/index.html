@@ -4,10 +4,13 @@
 <!--[if IE 8]>         <html lang="en" ng-app="poolui" class="no-js lt-ie9" manifest="app.manifest"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="poolui" class="no-js" manifest="app.manifest"> <!--<![endif]-->
 <head>
-  <title>XMRPool.net - Mine XMR/Monero or BTC/Bitcoin</title>
+  <title>Pool Tupi - Mineração de AEON</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Pool AEON de mineração no Brasil e na América Latina. Faça parte da nossa comunidade de amigos! Status para seus workers, payouts customizados, etc...">
+  <meta name="keywords" content="aeon, monero, xmr, mining, mineração, pool, pplns, block, bloco, payouts, reward, hash, hashrate, xmr-stak">
+  <meta name="google-site-verification" content="8fsduyK9_KF2zKQiMQL7i8Fp_JkyR8MTFqcBtT52QtI">
   <!-- CSS -->
   <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
   <link rel="stylesheet" href="vendor/n3-charts/build/LineChart.css">
@@ -16,9 +19,33 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/assets/apple-icon.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/assets/favicon.png">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <!-- Favicon -->
+  <link href="pooltupi_favicon.png" type="image/png" rel="icon">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109822847-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109822847-2');
+  </script>
+ 
+ <script>
+    WebFontConfig = {
+        google: { families: [ 'Saira Semi Condensed:400,600,700', 'Material Icons' ] }
+    };
+    (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+ 
 </head>
 <body ng-cloak layout="column" ng-controller="AppCtrl">
   <!--[if lt IE 7]>
@@ -28,95 +55,89 @@
       <div class="container" layout="row" flex>
         <md-sidenav md-is-locked-open="menuOpen" md-component-id="left" md-whiteframe="4" class="sidenav">
           <md-toolbar class="logo">
-            <h1 class="md-toolbar-tools">XMRPool.net <i class="md-caption">beta</i></h1>
+			<span class="md-toolbar-tools" style="text-align: center; position: ">
+				<strong><span>aeon.</span><span style="font-size: 120%; vertical-align: -23%;">POOL<span style="color: rgb(0,155,58);">T</span><span style="color: rgb(254,223,0);">U</span><span style="color: rgb(54,118,247);">P</span><span style="color: rgb(0,155,58);">I</span></span><span style="vertical-align: -31%;">.com </span></strong>
+			</span>
           </md-toolbar>
           <md-list>
             <md-list-item>
               <md-button href="#/home" ng-class="isActivePage('home')">
-                <md-icon md-font-set="material-icons" class="menu-item">home</md-icon>
-                Home
-              </md-button>
-            </md-list-item>
-            <md-list-item>
-              <md-button href="#/dashboard" ng-class="isActivePage('dashboard')">
-                <md-icon md-font-set="material-icons" class="menu-item">dashboard</md-icon>
-                Dashboard
-              </md-button>
-            </md-list-item>
-            <md-list-item>
-              <md-button href="#/blocks" ng-class="isActivePage('blocks')">
-                <md-icon md-font-set="material-icons" class="menu-item">reorder</md-icon>
-                Blocks
-              </md-button>
-            </md-list-item>
-            <md-list-item>
-              <md-button href="#/payments" ng-class="isActivePage('payments')">
-                <md-icon md-font-set="material-icons" class="menu-item">payments</md-icon>
-                Payment
-              </md-button>
-            </md-list-item>
-            <md-list-item>
-              <md-button href="#/ports" ng-class="isActivePage('ports')">
-                <md-icon md-font-set="material-icons" class="menu-item">flight_land</md-icon>
-                Ports
-              </md-button>
-            </md-list-item>
-            <md-list-item>
-              <md-button href="#/network" ng-class="isActivePage('network')">
-                <md-icon md-font-set="material-icons" class="menu-item">language</md-icon>
-                Network
-              </md-button>
-            </md-list-item>
-            <md-list-item>
-              <md-button href="#/help/chat" ng-class="isActivePage('support')">
-                <md-icon md-font-set="material-icons" class="menu-item">group</md-icon>
-                Support
+                <md-icon md-font-set="material-icons" class="menu-item">multiline_chart</md-icon>
+                Painel
               </md-button>
             </md-list-item>
             <md-list-item>
               <md-button href="#/help/getting_started" ng-class="isActivePage('help/getting_started')">
-                <md-icon md-font-set="material-icons" class="menu-item">launch</md-icon>
-                Getting Started
+                <md-icon md-font-set="material-icons" class="menu-item">queue_play_next</md-icon>
+                Primeiros Passos
               </md-button>
             </md-list-item>
             <md-list-item>
+              <md-button href="#/blocks" ng-class="isActivePage('blocks')">
+                <md-icon md-font-set="material-icons" class="menu-item">view_module</md-icon>
+                Blocos
+              </md-button>
+            </md-list-item>
+            <md-list-item>
+              <md-button href="#/payments" ng-class="isActivePage('payments')">
+                <md-icon md-font-set="material-icons" class="menu-item">monetization_on</md-icon>
+                Pagamentos
+              </md-button>
+            </md-list-item>
+            <md-list-item>
+              <md-button href="#/ports" ng-class="isActivePage('ports')">
+                <md-icon md-font-set="material-icons" class="menu-item">settings_input_component</md-icon>
+                Portas
+              </md-button>
+            </md-list-item>
+     <!--    <md-list-item>
+              <md-button href="#/network" ng-class="isActivePage('network')">
+                <md-icon md-font-set="material-icons" class="menu-item">language</md-icon>
+                Network
+              </md-button>
+            </md-list-item>-->
+            <md-list-item>
               <md-button href="#/help/faq" ng-class="isActivePage('help/faq')">
                 <md-icon md-font-set="material-icons" class="menu-item">help_outline</md-icon>
-                FAQ
+                Tire suas dúvidas
               </md-button>
             </md-list-item>
           </md-list>
-          <div flex></div>
-          <div class="power text-center md-subhead"  layout="row" layout-align="center end"> 
-            <div flex>
-            Powered by <a href="https://github.com/Snipa22/nodejs-pool" target="_new">nodejs-pool</a> & <a class="alt" href="https://github.com/mesh0000/poolui" target="_new">poolui</a>
-            <br/>
-            MIT Licence 
-            </div>
-          </div>
+		  <div flex></div>
+		<div class="text-center" layout-align="center end" class="layout-align-center-end layout-row" style="font-size:12px;">
+		  <a href="https://t.me/pooltupi/" target="_blank"><i class="fa fa-paper-plane"></i> Telegram</a> / 
+		  <a href="https://discord.gg/fWRkf3Z" target="_blank"> <i class="fa fa-dashcube"></i> Discord</a> / 
+		  <a href="https://chat.whatsapp.com/FDryMCtFYUS5C0AjrB2A0K" target="_blank"> <i class="fa fa-whatsapp"></i> Whatsapp</a>
+		</div>
+		  <div layout="row" layout-align="center end" class="layout-align-center-end layout-row">
+		    <br/>
+		    <img src="oca.png" class="text-center layout-align-center-center layout-row flex" flex="" layout="row" layout-align="center center">
+		  </div>
         </md-sidenav>
 
         <md-content flex id="main">
           <md-toolbar class="navbar md-whiteframe-2dp">
-            <div class="md-toolbar-tools maintoolbar text-center" ng-class="{smallfont: !menuOpen}" layout="row">
+            <div class="md-toolbar-tools maintoolbar" layout="row">
               <md-button class="md-icon-button" type="button" ng-click="toggleSidenav()">
                 <md-icon md-font-set="material-icons">menu</md-icon>
               </md-button>
-              <h3 flex><a href="#/dashboard">Network : <b>{{network.difficulty | difficultyToHashRate | toHashRate}}</b></a></h3>
-              <h3 flex><a href="#/dashboard">Pool : <b>{{poolStats.global.hashRate | toHashRate}}</b></a></h3>
-              <h3 flex><a href="#/dashboard">You : <b>{{yourTotalHashRate | toHashRate}}</b></a></h3>
-              <div>
+              <span class="flex text-center wrap">Mundo: <b class="nowrap">{{network.difficulty | difficultyToHashRate | toHashRate}}</b></a></span>
+              <span class="flex text-center wrap">Tupi: <b class="nowrap">{{poolStats.global.hashRate | toHashRate}}</b></a></span>
+              <span class="flex text-center wrap"><a href="#/home">Você: <b class="nowrap">{{yourTotalHashRate | toHashRate}}</b></a></span>
+              <!--<div>
                 <md-button class="md-raised md-accent" aria-label="Miner Login" ng-click="minerLogin($event)" ng-if="!isLoggedIn()">
-                  <md-icon class="login">fingerprint</md-icon>
-                  Login
+                  <md-icon class="login">settings</md-icon>
+                  <span class="setup-text">Console</span>
                 </md-button>
                 <md-button class="md-fab md-mini md-warn" aria-label="Miner Login" ng-click="minerConsole($event)" ng-if="isLoggedIn()">
                   <md-icon class="login">build</md-icon>
                 </md-button>
-              </div>
+              </div>-->
             </div>
           </md-toolbar>
           <div id="content" ng-view flex></div>
+		<div class="footer">Orgulhosamente hospedado e mantido por Brasileiros no Brasil.<br/>Siga-nos: <strong><a href="https://twitter.com/pooltupi"><i class="fa fa-twitter"></i> Twitter</a></strong> / <strong><a href="https://facebook.com/pooltupi"><i class="fa fa-facebook"></i> Facebook</a></strong> / <strong><a href="https://instagram.com/pooltupi"><i class="fa fa-instagram"></i> Instagram</a></strong>
+		</div>
         </md-content>
       </div>
       <!-- Scripts -->
@@ -153,6 +174,7 @@
       <script src="user/help/chat.js"></script>
       <script src="user/help/getting_started.js"></script>
       <script src="user/help/portsmodal.js"></script>
+      <script src="user/help/config_generator.js"></script>
       <script src="user/help/faq.js"></script>
     </body>
     </html>

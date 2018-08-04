@@ -2,7 +2,7 @@
 	<form ng-cloak>
 		<md-toolbar>
 			<div class="md-toolbar-tools">
-				<h2>Miner Console</h2>
+				<span class="md-title">Console do Minerador</span>
 				<span flex></span>
 				<md-button class="md-icon-button" ng-click="cancel()">
 					<md-icon aria-label="Close dialog">clear</md-icon>
@@ -12,44 +12,44 @@
 
 		<md-dialog-content>
 			<md-tabs class="console">
-				<md-tab label="Payment Threshold" md-on-select="currentTab = 'Threshold'">
+				<md-tab label="Limite de pagamento" md-on-select="currentTab = 'Threshold'">
 					<div layout-padding>
-						<p class="" ng-if="paymentThresh==0">You currently have no payment threshold set, defaults are in use.</p>
+						<p class="" ng-if="paymentThresh==0">Você não definiu nenhum limite de pagamento. O padrão está sendo usado.</p>
 						<form name="thresholdForm" autocomplete="off">
 							<md-input-container>
-								<label>Payment Threshold Limit</label>
+								<label>Saldo mínimo para pagamento</label>
 								<input type="number" ng-model="paymentThresh" name="threshold" step="any" required min="{{min_wallet_payout | toXMR}}">
 							</md-input-container>
 							<div ng-messages="thresholdForm.threshold.$error" multiple>
 								<div ng-message="min">
-									This value cannot be lower than {{min_wallet_payout | toXMR}} XMR
+									Este valor não pode estar abaixo de {{min_wallet_payout | toXMR}} AEON
 								</div>
 							</div>
-							<p>The pool will pay out to your wallet once your total due exceeds the payment threshold</p>
+							<p>A pool pagará sua carteira quando você ultrapassar o limite.</p>
 						</form>
 					</div>
 				</md-tab>
-				<md-tab label="Email Settings" md-on-select="currentTab = 'Email'">
+				<md-tab label="Configurações de e-mail" md-on-select="currentTab = 'Email'">
 					<div layout-padding>
 						<form name="emailForm" autocomplete="off">
-							<md-checkbox ng-model="email_toggle" ng-true-value="1" ng-false-value="0">Receive miner hashrate alerts</md-checkbox>							
+							<md-checkbox ng-model="email_toggle" ng-true-value="1" ng-false-value="0">Receber alertas se o hash rate do minerador chegar a zero.</md-checkbox>							
 						</form>
 					</div>
 				</md-tab>
 				
-				<md-tab label="Change Password" md-on-select="currentTab = 'Password'">
+				<md-tab label="Mudar senha" md-on-select="currentTab = 'Password'">
 					<div layout-padding>
 						<form name="passwordForm" autocomplete="off">
 							<md-input-container class="md-block">
-								<label>New Password</label>
+								<label>Nova senha</label>
 								<input type="password" ng-model="password.pwd" name="pwd" required md-autofocus>
 							</md-input-container>
 							<md-input-container class="md-block">
-								<label>Confirm Password</label>
+								<label>Confirmar senha</label>
 								<input type="password" id="cnfpwd" ng-model="password.cnf" name="cnf" required compare-to="password.pwd" ng-focus="status == 'Check passwords'">
 								<div ng-messages="passwordForm.cnf.$error" multiple>
 									<div ng-message="compare-to">
-										Please confirm your new password
+										Por favor, confirme a nova senha
 									</div>
 								</div>
 							</md-input-container>
@@ -61,12 +61,12 @@
 
 		<md-dialog-actions layout="row">
 			<md-button class="md-raised md-primary md-warn" ng-click="logout()">
-				Logout
+				Sair
 			</md-button>
 			<span flex></span>
 			<p ng-class="statusClass">{{status}}</p>
 			<md-button class="md-primary" ng-click="save()">
-				Update {{currentTab}}
+				Atualizar {{currentTab}}
 			</md-button>
 		</md-dialog-actions>
 	</form>
