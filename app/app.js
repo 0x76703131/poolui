@@ -16,7 +16,7 @@ var app = angular.module('poolui', [
 	'angular-page-visibility'
 	]).config(['$locationProvider', '$routeProvider', '$mdThemingProvider', function($locationProvider, $routeProvider, $mdThemingProvider) {
 		$locationProvider.hashPrefix('')
-		;	
+		;
 		$mdThemingProvider.theme('default')
 		.primaryPalette('grey')
 		.accentPalette('light-blue');
@@ -78,11 +78,11 @@ var app = angular.module('poolui', [
 	}]);
 
 	app.controller('AppCtrl', function($scope, $rootScope, $location, $route, $routeParams, $anchorScroll, $window, $interval, $mdDialog, dataService, timerService, addressService, $mdSidenav, $mdMedia, $localStorage, ngAudio, GLOBALS, $http){
-		
+
 		$http.get("https://api.coinmarketcap.com/v1/ticker/aeon/?convert=BRL").then(function(response) {
                 $scope.preco_brl = response.data[0].price_brl;
             });
-		
+
 		$scope.GLOBALS = GLOBALS;
 		var appCache = window.applicationCache;
 		$scope.$storage = $localStorage;
@@ -93,20 +93,21 @@ var app = angular.module('poolui', [
         $scope.poolMinersChart = {}; // miners history
 		$scope.addrStats = {}; // All tracked addresses
 		$scope.lastBlock = {};
-		
+
 		// for miner tracking
 		$scope.yourTotalHashRate = 0;
 
 		// Hashrate Alarm
 		$scope.globalSiren = false;
 		$scope.sirenAudio = ngAudio.load("assets/ding.wav");
-		
+
 		// Update global hashrate and set off alarm if any of the tracked addresses fall below the threshold
 		var updateHashRate = function (addrStats){
 			var totalHashRate = 0;
 			var siren = false;
-			
+			var any_stats = false;
 			_.each(addrStats, function(addr,index) {
+				any_stats = true;
 				totalHashRate += addr.hash;
 				if (addr.alarm && addr.hash < addr.alarmLimit) {
 					siren=true;
@@ -115,6 +116,7 @@ var app = angular.module('poolui', [
 
 			$scope.globalSiren=siren;
 			$scope.yourTotalHashRate = totalHashRate;
+			$scope.any_stats = any_stats;
 		}
 
 		var playSiren = function (){
@@ -180,7 +182,7 @@ var app = angular.module('poolui', [
 		// ------- App Update
 		var update = function() {
 			if (appCache.status == window.applicationCache.UPDATEREADY) {
-				appCache.swapCache(); 
+				appCache.swapCache();
 				$window.location.reload();
 			}
 		}
@@ -207,7 +209,7 @@ var app = angular.module('poolui', [
 				var semanal = (((360 * valorBloco * 1) / dificuldade) * 0.94) * 7;
 				$scope.oneHash = semanal;
 			});
-			
+
 			dataService.getData("/pool/blocks/pplns?limit=50", function(data) {
 				var blockCount = 0;
                 var totalLuck = 0;
@@ -219,12 +221,12 @@ var app = angular.module('poolui', [
 				$scope.overallEffort = (totalLuck / blockCount) * 100;
 
 			});
-			
+
 			//calcula quantos AEONs já foram pagos (menos taxas)
 			/* dataService.getData("/pool/payments?limit=5000", function(data){
 				var contadorPagamento = 0;
 				var totalAEON = 0;
-				
+
 				$scope.pagobjeto = data;
 				for (var x = 0; x < $scope.pagobjeto.length; x++) {
 					totalAEON += ($scope.pagobjeto[x].value / 1000000000000) - 0.01;
@@ -239,7 +241,7 @@ var app = angular.module('poolui', [
 			dataService.getData("/config", function(data){
 				$scope.config = data;
 			});
-			
+
 			//conta o número de conexões em todas as portas
 			dataService.getData("/pool/ports", function(data){
 				var total = 0;
@@ -247,21 +249,21 @@ var app = angular.module('poolui', [
 					total +=  port.miners;
 				})
 				$scope.WorkersTotal = total;
-		
-			});	
+
+			});
 		}
 
 		// For FAQ
 		$rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
 			$location.hash($routeParams.scrollTo);
-			$anchorScroll();  
+			$anchorScroll();
 		});
 
 		// Start doing things
 		loadOnce();
 		loadData();
 		update();
-		
+
 		// Start the timer and register global requests
 		timerService.startTimer(GLOBALS.api_refresh_interval);
 		timerService.register(loadData, 'global');

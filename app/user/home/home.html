@@ -10,7 +10,7 @@
    		</div>
    	</md-card-content>
    </md-card>
-   
+
    <md-card flex>
    	<md-card-title>
    		<span class="md-headline">Média de esforço (últimos 25 blocos)</span>
@@ -22,26 +22,14 @@
    	</md-card-content>
    </md-card>
    </div> -->
-<div layout="column" layout-gt-md="row" flex>
-   <md-card flex ng-include="'welcome.html'">
+   <md-card flex ng-if="!any_stats">
+       <md-card-content>
+         <div>
+               <div class="md-headline">Bem-vindo à pool tupi de mineração AEON!</div>
+               <p>Se esta é a primeira vez que você ouve falar de mineração de criptomoedas, veja nossa <a style="text-decoration: underline; font-weight: bold;" href="https://pooltupi.com/temp/intro.html">página de introdução</a>.</p>
+           </div><ng-include src="'welcome.html'"></ng-include>
+       </md-card-content>
    </md-card>
-</div>
-<form layout layout-align="center" layout-padding>
-   <div layout="row" flex>
-      <md-input-container flex class="md-icon-float md-block md-title">
-         <label>Endereço da sua carteira (inicia com Wm...)</label>
-         <!-- below is the material icons -->
-         <md-icon class="material-icons">account_balance_wallet</md-icon>
-         <input type="text" ng-model="paymentAddress">
-      </md-input-container>
-      <div>
-         <md-button class="md-raised md-primary" ng-click="addAddress()">
-            <md-icon md-font-set="material-icons">add</md-icon>
-            Status ao vivo
-         </md-button>
-      </div>
-   </div>
-</form>
 <div layout-md="column" layout-sm="column" layout-xs="column" layout="row" flex ng-repeat="(addr,miner) in addrStats">
    <md-card flex>
       <md-toolbar class="md-accent">
@@ -82,7 +70,7 @@
                <div flex>
                   <h4>
                      Taxa média 24h
-                     <h2>{{minerStats[addr].dataset['global'].avghstfhour | toHashRate}}<br/><span style="font-size: small;">≅ {{(minerStats[addr].dataset['global'].avghstfhour * oneHash).toFixed(2)}} AEON / ≅ R$ {{((minerStats[addr].dataset['global'].avghstfhour * oneHash) * preco_brl).toFixed(2)}} / semana</span></h2>
+                     <h2>{{minerStats[addr].dataset['global'].avghstfhour | toHashRate}}<br/><span style="font-size: small;">≅ {{(minerStats[addr].dataset['global'].avghstfhour * oneHash).toFixed(2)}} AEON / ≅ {{((minerStats[addr].dataset['global'].avghstfhour * oneHash) * preco_brl).toFixed(2)}} BRL / semana</span></h2>
                      <md-tooltip>Valores calculados com base na dificuldade atual.</md-tooltip>
                   </h4>
                </div>
@@ -91,14 +79,14 @@
                <div flex>
                   <h4>
                      Total devido
-                     <h2>{{miner.amtDue | toXMR | number:6}} AEON</h2>
+                     <h2>{{miner.amtDue | toXMR | number:6}} AEON<br/><span style="font-size: small;">≅ {{((miner.amtDue/1000000000000) * preco_brl).toFixed(2)}} BRL</span></h2>
                      <md-tooltip>Ao chegar no saldo mínimo necessário, este valor será transferido à sua carteira.</md-tooltip>
                   </h4>
                </div>
                <div flex>
                   <h4>
                      Total pago
-                     <h2>{{miner.amtPaid | toXMR | number:6}} AEON</h2>
+                     <h2>{{miner.amtPaid | toXMR | number:6}} AEON<br/><span style="font-size: small;">≅ {{((miner.amtPaid/1000000000000) * preco_brl).toFixed(2)}} BRL</span></h2>
                      <md-tooltip>Valor já enviado à sua carteira.</md-tooltip>
                   </h4>
                </div>
@@ -194,3 +182,19 @@
       </md-card-actions>
    </md-card>
 </div>
+<form layout layout-align="center" layout-padding>
+   <div layout="row" flex>
+      <md-input-container flex class="md-icon-float md-block md-title">
+         <label>Endereço da sua carteira (inicia com Wm...)</label>
+         <!-- below is the material icons -->
+         <md-icon class="material-icons">account_balance_wallet</md-icon>
+         <input type="text" ng-model="paymentAddress">
+      </md-input-container>
+      <div>
+         <md-button class="md-raised md-primary" ng-click="addAddress()">
+            <md-icon md-font-set="material-icons">add</md-icon>
+            Status ao vivo
+         </md-button>
+      </div>
+   </div>
+</form>
