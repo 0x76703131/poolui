@@ -2,7 +2,7 @@
 <md-card>
 	<md-toolbar class="md-table-toolbar md-default">
 		<div class="md-toolbar-tools">
-			<span class="md-title">Lista de portas</span>
+			<span class="md-title">Portas de conexão</span>
 		</div>
 	</md-toolbar>
 	<md-card-content>
@@ -15,22 +15,22 @@
 								<th md-column md-numeric><h2 class="md-subhead">Servidor</h2></th>
 								<th md-column md-numeric md-order-by="port"><h2 class="md-subhead">Porta</h2></th>
 								<!--<th md-column md-numeric md-order-by="pool_type" ng-if="pooltype=='global'"><h2 class="md-subhead">Tipo da porta</h2></th>-->
-								<th md-column md-numeric md-order-by="difficulty"><h2 class="md-subhead">Dificuldade</h2></th>
-								<th md-column md-numeric md-order-by="miners"><h2 class="md-subhead">Mineradores</h2></th>
-								<th md-column md-numeric><h2 class="md-subhead">Altura</h2></th>
-								<th md-column md-numeric><h2 class="md-subhead">Horário do bloco</h2></th>
+								<th md-column md-numeric md-order-by="difficulty"><h2 class="md-subhead">Dificuldade inicial</h2></th>
+								<th md-column md-numeric md-order-by="miners"><h2 class="md-subhead">Conexões</h2></th>
+								<th md-column md-numeric><h2 class="md-subhead">ID Bloco</h2></th>
+								<!--<th md-column md-numeric><h2 class="md-subhead">Horário do bloco</h2></th>-->
 								<th md-column md-numeric><h2 class="md-subhead">Descrição</h2></th>
 							</tr>
 						</thead>
 						<tbody md-body>
 							<tr md-row ng-repeat="portinfo in ports | orderBy: portsOrder">
-								<td md-cell><p class="md-body-2">{{portinfo.host.hostname}}</p></td>
+								<td md-cell><p class="md-body-2">aeon.pooltupi.com</p></td>
 								<td md-cell><p class="md-body-2">{{portinfo.port}}</p></td>
 								<!--<td md-cell ng-if="pooltype=='global'"><p class="md-body-2">{{portinfo.pool_type}}</p></td>-->
 								<td md-cell><p class="md-body-2">{{portinfo.difficulty}}</p></td>
 								<td md-cell><p class="md-body-2">{{portinfo.miners}}</p></td>
 								<td md-cell><p class="md-body-2">{{portinfo.host.blockID}}</p></td>
-								<td md-cell><p class="md-body-2">{{portinfo.host.blockIDTime * 1000 | date: 'HH:mm:ss - dd/MM/yy'}}</p></td>
+								<!--<td md-cell><p class="md-body-2">{{portinfo.host.blockIDTime * 1000 | date: 'HH:mm:ss - dd/MM/yy'}}</p></td>-->
 								<td md-cell><p class="md-body-2">{{portinfo.description}}</p></td>
 							</tr>
 						</tbody>

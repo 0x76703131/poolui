@@ -9,5 +9,6 @@ tmp
 app/vendor/
 build/
 app/globals.js
-app/beta/
 app/temp/
+app/beta/
+app/ext/

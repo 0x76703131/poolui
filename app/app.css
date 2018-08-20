@@ -7,6 +7,39 @@ rgb(225,225,225) mercury
 rgb(235,235,235) gallery
 */
 
+/*
+  Começo das minhas classes customizadas
+*/
+
+
+
+.cabecalho {
+  display: table-row;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #f0f0f0;
+}
+
+.celula {
+  display: table-cell;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+  border: solid;
+  border-width: thin;
+  border-color: #f0f0f0;
+  text-align: center;
+}
+
+.linha {
+  display: table-row;
+}
+
+/*
+  Fim!
+*/
+
 html, body {
   font-family: 'Saira Semi Condensed',sans-serif;
   font-size:14px;
@@ -17,29 +50,34 @@ html, body {
 
 a {
   transition: color .4s;
-  color: rgba(0, 0, 0,0.54); 
-   text-decoration: underline;
+  color: rgba(0, 0, 0,0.54);
+  text-decoration: underline;
 }
 
 a:link { text-decoration: none; },
-a:visited { color: rgb(60, 75, 60); } 
+a:visited { color: rgb(60, 75, 60); }
 a:hover   { color: rgb(60, 75, 60); }
 a:active  {
   transition: color .3s;
   color: rgb(204, 122, 0);
 }
 
+.link {
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+
  .panel-subtitle {
 	 font-weight: bold;
 	 font-size: 110%;
  }
- 
+
  .footer {
 	 text-align: center;
 	 font-size: 90%;
 	 padding-bottom: 40px;
  }
- 
+
 /*** Material Styles ***/
 md-card {
   overflow: hidden;
@@ -65,11 +103,11 @@ md-toolbar {
 }
 
 #main {
-  background: rgb(240, 240, 240); 
+  background: rgb(240, 240, 240);
 }
 
 .maintoolbar {
-  background-color: rgb(255, 255, 255); 
+  background-color: rgb(255, 255, 255);
   /*color: rgb(255, 255, 255);*/
  }
 
@@ -133,7 +171,7 @@ md-tooltip .md-content {
 .sidebar {
   display: flex;
   flex-wrap: nowrap;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 .sidebar a {
@@ -144,7 +182,7 @@ md-tooltip .md-content {
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0;
-  opacity: 0.87; 
+  opacity: 0.87;
 }
 
 .sidebar md-icon, .sidebar ng-md-icon {
@@ -171,11 +209,11 @@ md-tooltip .md-content {
 	.setup-text {
 		display: none;
 	}
-	
+
 	.maintoolbar span {
 		font-size: 14px;
 	}
-}	
+}
 
 /* HELPERS */
 .welcome p {
@@ -228,7 +266,7 @@ md-tooltip .md-content {
 }
 .frac span.symbol {
     display: none;
-} 
+}
 
 .hide-error-msg .md-errors-spacer{
   display: none
@@ -306,7 +344,7 @@ md-dialog .login {
 		height: 300px;
 		min-width: 100%;
 	}
-	
+
 	md-dialog .login {
 		min-width: 100% !important;
 	}

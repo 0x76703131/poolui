@@ -22,8 +22,8 @@ angular.module('utils.strings', [])
 
 .filter('hashToLink', function($sce) {
   return function(hash, type) {
-    var str = (hash == undefined) ? 'none' : "<a class=\"md-body-2\" target=\"_new\" href=\"https://aeonblocks.com/tx/" + hash + "\">" + hash + "</a>";
-    return $sce.trustAsHtml(str); 
+    var str = (hash == undefined) ? 'none' : "<a class=\"md-body-2\" target=\"_new\" href=\"https://aeonblocks.com/search?value=" + hash + "\">" + hash + "</a>";
+    return $sce.trustAsHtml(str);
   };
 })
 
@@ -32,4 +32,3 @@ angular.module('utils.strings', [])
     return Math.floor(hashrate / 240)
   };
 });
-

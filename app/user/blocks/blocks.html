@@ -25,7 +25,7 @@
 <!--						<th md-column><h2 class="md-subhead">Difficulty</h2></th>-->
 						<th md-column><h2 class="md-subhead">Hash</h2></th>
 <!--						<th md-column><h2 class="md-subhead">Shares</h2></th>-->
-						
+
 <!--						<th md-column><h2 class="md-subhead">Pool</h2></th>-->
 					  </tr>
 					</thead>
@@ -43,14 +43,14 @@
 							</md-tooltip>
 						</td>
 						<td md-cell><p class="md-body-2 nowrap" ng-style="{'color' : block.color}"><strong>{{::block.luck | number:1}} %</strong></p>
-                                                <md-tooltip md-direction="left">
-                                                <span class="frac"><span>{{::block.shares | number}}</span><span class="symbol">/</span><span class="bottom">{{::block.diff | number}}</span></span>
-                                                </md-tooltip>
+              <md-tooltip md-direction="left">
+              <span class="frac"><span>{{::block.shares | number}}</span><span class="symbol">/</span><span class="bottom">{{::block.diff | number}}</span></span>
+              </md-tooltip>
 						</td>
 						<td md-cell>
 							<md-progress-linear  md-mode="query" ng-if="!block.maturity"></md-progress-linear>
 							<p ng-if="block.maturity<0">
-								<md-icon>lock_open</md-icon> 
+								<md-icon>lock_open</md-icon>
 								<md-tooltip md-direction="left">
 									Há {{-block.maturity}} blocos
 								</md-tooltip>

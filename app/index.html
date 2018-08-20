@@ -2,14 +2,14 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="poolui" class="no-js lt-ie9 lt-ie8 lt-ie7" manifest="app.manifest"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="poolui" class="no-js lt-ie9 lt-ie8" manifest="app.manifest"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="poolui" class="no-js lt-ie9" manifest="app.manifest"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="poolui" class="no-js" manifest="app.manifest"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="pt" ng-app="poolui" class="no-js" manifest="app.manifest"> <!--<![endif]-->
 <head>
   <title>Pool Tupi - Mineração de AEON</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="description" content="Pool AEON de mineração no Brasil e na América Latina. Faça parte da nossa comunidade de amigos! Status para seus workers, payouts customizados, etc...">
-  <meta name="keywords" content="aeon, monero, xmr, mining, mineração, pool, pplns, block, bloco, payouts, reward, hash, hashrate, xmr-stak">
+  <meta name="keywords" content="xmrig, aeon, monero, xmr, mining, mineração, pool, pplns, block, bloco, payouts, reward, hash, hashrate, xmr-stak">
   <meta name="google-site-verification" content="8fsduyK9_KF2zKQiMQL7i8Fp_JkyR8MTFqcBtT52QtI">
   <!-- CSS -->
   <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <!-- Favicon -->
-  <link href="pooltupi_favicon.png" type="image/png" rel="icon">
+  <link href="favicon.png" type="image/png" rel="icon">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109822847-2"></script>
   <script>
@@ -31,7 +31,7 @@
 
     gtag('config', 'UA-109822847-2');
   </script>
- 
+
  <script>
     WebFontConfig = {
         google: { families: [ 'Saira Semi Condensed:400,600,700', 'Material Icons' ] }
@@ -45,13 +45,12 @@
         s.parentNode.insertBefore(wf, s);
     })();
   </script>
- 
+
 </head>
 <body ng-cloak layout="column" ng-controller="AppCtrl">
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
-
       <div class="container" layout="row" flex>
         <md-sidenav md-is-locked-open="menuOpen" md-component-id="left" md-whiteframe="4" class="sidenav">
           <md-toolbar class="logo">
@@ -104,14 +103,18 @@
             </md-list-item>
           </md-list>
 		  <div flex></div>
-		<div class="text-center" layout-align="center end" class="layout-align-center-end layout-row" style="font-size:12px;">
-		  <a href="https://t.me/pooltupi/" target="_blank"><i class="fa fa-paper-plane"></i> Telegram</a> / 
-		  <a href="https://discord.gg/fWRkf3Z" target="_blank"> <i class="fa fa-dashcube"></i> Discord</a> / 
-		  <a href="https://chat.whatsapp.com/FDryMCtFYUS5C0AjrB2A0K" target="_blank"> <i class="fa fa-whatsapp"></i> Whatsapp</a>
+		<div class="text-center" layout-align="center end" class="layout-align-center-end layout-row" style="font-size:12px; color: white;">
+      <a href="#"><md-icon md-svg-src="assets/en_US.svg" style="height: 32px !important; width: 32px !important;" role="img" aria-hidden="true"></md-icon></a>
+      &nbsp;&nbsp;<a href="#"><md-icon md-svg-src="assets/es_ES.svg" style="height: 32px !important; width: 32px !important;" role="img" aria-hidden="true"></md-icon></a>
+      &nbsp;&nbsp;<a href="#"><md-icon md-svg-src="assets/pt_BR.svg" style="height: 32px !important; width: 32px !important;" role="img" aria-hidden="true"></md-icon></a>
+      <br/><br/>
+		  <a href="https://t.me/pooltupi/" target="_blank"><i class="fa fa-paper-plane"></i> Telegram</a> /
+		  <a href="https://discord.gg/fWRkf3Z" target="_blank"> <i class="fa fa-dashcube"></i> Discord</a> /
+		  <a href="https://chat.whatsapp.com/FDryMCtFYUS5C0AjrB2A0K" target="_blank"> <i class="fa fa-whatsapp"></i> WhatsApp</a>
 		</div>
 		  <div layout="row" layout-align="center end" class="layout-align-center-end layout-row">
 		    <br/>
-		    <img src="oca.png" class="text-center layout-align-center-center layout-row flex" flex="" layout="row" layout-align="center center">
+		    <img src="assets/oca.png" class="text-center layout-align-center-center layout-row flex" flex="" layout="row" layout-align="center center">
 		  </div>
         </md-sidenav>
 
