@@ -33,6 +33,6 @@ $ npm install # runs everything, serve from ./build
 
 #### Doações
 
-versão traduzida por vp11: 8BTcfC6b3dGMvfMwaVub8yJbr4tAC6ggHGMv6yJjy9eC8jbApCz15x66XpPrhBEpV85hyeHMFeCYpdWFv5WBNc7t4YM9k8Z
+versão traduzida por vp11: 46YLZhJbywCHkMfggSpVmvgyzpYfTKY3rTi19iBSuvw88vYxXADS3d5XzPeGF2FjSKjJpmjj3YRznDgGG8HZHHdy7H9DHiR
 
 mesh0000 (criador original): 42yCGRP2p6bZzMjJxKpJtTFRz2x3X3eBYD97T17zdxC9NiGNWafCaU54MKWBZkHb9AVb4XBgcjkPGW8hjQyBM2vMMvVCzTj
